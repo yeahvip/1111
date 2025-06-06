@@ -1,0 +1,13 @@
+import os
+from app import create_app
+
+# Load .env file if it exists, especially for FLASK_APP and FLASK_ENV
+from dotenv import load_dotenv
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+
+app = create_app()
+
+if __name__ == '__main__':
+    app.run(debug=True)
